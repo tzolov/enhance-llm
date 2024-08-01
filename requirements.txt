@@ -1,0 +1,5 @@
+chromadb==0.5.5
+datasets==2.20.0
+sentence_transformers==3.0.1
+torch==2.4.0
+transformers==4.43.3
