@@ -12,7 +12,7 @@ mkShell {
   postVenvCreation = ''
     unset SOURCE_DATE_EPOCH
     pip install --prefix=.venv jupyter ipykernel
-    pip install --prefix=.venv transformers torch einops accelerate datasets chromadb sentence-transformers
+    pip install --prefix=.venv -r requirements.txt
   '';
 
   postShellHook = ''
