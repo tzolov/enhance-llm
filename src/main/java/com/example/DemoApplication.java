@@ -3,11 +3,8 @@ package com.example;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
@@ -40,6 +37,8 @@ public class DemoApplication {
 			// disable the Loading after the first run.
 			load(store, mapper);
 			System.out.println("Loaded %d documents");
+
+			Thread.sleep(10000);
 
 			var response = builder.build()
 				.prompt()
