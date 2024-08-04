@@ -4,3 +4,5 @@ offload/
 target/
 README.py
 onnx-output/
+venv/
+onnx-output-folder/
