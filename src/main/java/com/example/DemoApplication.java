@@ -38,16 +38,20 @@ public class DemoApplication {
 			load(store, mapper);
 			System.out.println("Loaded %d documents");
 
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 
-			var response = builder.build()
-				.prompt()
-				.advisors(new QuestionAnswerAdvisor(store, SearchRequest.defaults()))
-				.user("When was Tomoaki Komorida born?")
-				.call()
-				.content();
+			System.out.println("Ready to chat");
 
-			System.out.println(response);
+			for (int i = 0; i < 10; i++) {
+				var response = builder.build()
+					.prompt()
+					.advisors(new QuestionAnswerAdvisor(store, SearchRequest.defaults()))
+					.user("When was Tomoaki Komorida born?")
+					.call()
+					.content();
+
+				System.out.println("Response# " + i +  " -> " + response);
+			}
 		};
 	}
 
@@ -81,15 +85,16 @@ public class DemoApplication {
 		// subBatchSplit(list, 50).stream().forEach(store::add);
 	}
 
-	// public static List<List<Document>> subBatchSplit(List<Document> docs, int batchSize) {
-	// 	int totalCount = docs.size();
-	// 	List<List<Document>> results = new ArrayList<>();
-	// 	int start = 0;
-	// 	while (start < totalCount) {
-	// 		results.add(docs.subList(start, Math.min(docs.size(), start + batchSize)));
-	// 		start += batchSize;
-	// 	}
-	// 	return results;
+	// public static List<List<Document>> subBatchSplit(List<Document> docs, int
+	// batchSize) {
+	// int totalCount = docs.size();
+	// List<List<Document>> results = new ArrayList<>();
+	// int start = 0;
+	// while (start < totalCount) {
+	// results.add(docs.subList(start, Math.min(docs.size(), start + batchSize)));
+	// start += batchSize;
+	// }
+	// return results;
 	// }
 
 }
